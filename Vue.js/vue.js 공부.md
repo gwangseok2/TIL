@@ -1,0 +1,33 @@
+# vue.js 공부
+
+----
+
+## [2022 07 10]
+
+- **Computed속성** : 단순한 연산 이외에 연산 작업을 사용할 시 Computed속성을 사용해서 하면 캐싱도 될 뿐더러 속도에 용이하다. vue.js의 Dom 생성 전 연산을 끝낸 결과 값을 캐싱하여 불러온다. methods로도 사용 가능하지만 method로 사용하게 되면 Dom생성 후 연산 작업때 마다 함수를 호출하기 때문에 복잡한 연산 작업은 Computed 속성으로 사용하는 것이 좋다.
+
+- ```vue
+  <div>
+      
+      {{reversedMessage}}
+      {{reversedMessage}}
+      {{reversedMessage}}
+  </div>
+  <Script>
+  	export default{
+          data() {
+              return {
+                  message:'다된전반'
+              }
+          },
+          // Dom생성 전 연산을 저장
+          computed: {
+              reversedMessage() {
+                  return {
+                      this.mesaage.split('').reverse().join('')
+                  }
+              }
+          }
+      }
+  </Script>
+  ```
