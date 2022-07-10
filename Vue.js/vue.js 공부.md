@@ -64,3 +64,38 @@
 ```
 
 ---
+
+## [Watch] 
+
+- watch속성은 데이터를 감시하고 있다가 데이터가 변경 됐을 때 매게변수로 **newVal**와 **oldVal**을 **순서대로** 매게변수로 받는다. 사용법은 아래와 같다.
+
+```vue
+<div>
+    <h1>{{ message }}</h1>
+    <button @click='changeData'>클릭</button>
+    {{ watch }}
+</div>
+<Script>
+	export default{
+        data() {
+            return {
+                message:'감시하냐?',
+                watch: '감시전',
+            }
+        },
+        watch: {
+            message(newVal, oldVal) {
+                console.log(newVal, oldVal);
+                this.watch = '감시후'
+            }
+        },
+        
+        methods: {
+            changeData() {
+                this.message = this.message.split('').reverse().join('');
+            }
+        }
+    }
+</Script>
+```
+
