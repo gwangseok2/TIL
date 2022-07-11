@@ -1,6 +1,10 @@
-# vue.js 공부
+# 
 
-----
+# [vue.js 공부 목차]
+
+[TOC]
+
+
 
 # [2022 07 10]
 
@@ -98,4 +102,52 @@
     }
 </Script>
 ```
+
+---
+
+# [2022 07 11]
+
+---
+
+## [Vue.js 버튼 토글 컨트롤]
+
+- v-for문으로 (item, index) 배열 돌린 후 배열에 :class={active : isActive} 바인딩 후 onclick methods 실행 
+
+
+
+```vue
+<div 
+     v-for="(item, index) in btnArr"
+     :key="item.id" 
+     class="btn-item" 
+     :class="{active : isAcitve}" 
+     @click="toggleActive(index);"
+     >
+    {{ item.name }}
+</div>
+<script>
+    data() {
+        return {
+            btnArr: [
+                {id:1, name:'gd', isActive: true},
+                {id:2, name:'gdd', isActive: false},
+                {id:3, name:'gddd', isActive: false},
+            ]
+        }
+    }
+    method: {
+        
+        toggleActive(index) {
+            this.btnArr.forEach(function(item){
+                item.isActive=false;
+            });
+        	this.btnArr[index].isActive = !this.btnArr[index].isActive;
+        },
+            
+    }
+	
+</script>
+```
+
+
 
