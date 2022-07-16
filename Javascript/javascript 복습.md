@@ -180,5 +180,14 @@ switch (val) {
 
       
 
-2. **include**
-   - 배열에서 특정 요소를 찾을 수 있다.
+2. **includes**
+
+   - 배열에서 특정 요소를 찾을 수 있다. 있을 시 true 없을 시 false 반환.
+
+     ```
+     const arr = [1, 2, 3, 4, 5];
+     const result = arr.includes(2);
+     console.log(result);
+     ```
+
+     
