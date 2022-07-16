@@ -140,12 +140,45 @@ switch (val) {
    
    // 항상 배열의 마지막에 요소를 추가 하는법
    arrayOfArray[arrayOfArray.length] = '6';
-   arrayOfArray.puth('6');
+   arrayOfArray.push('6');
+   
+   // 배열 마지막요소 제거하기.
+   arrayOfArray.pop();
    
    // 배열 제일 앞에 요소를 추가 하는법
    arrayOfArray.unshift('0');
+   
+   // 배열의 첫 번째 요소 제거하기.
+   arrayOfArray.shift();
+   
+   
    ```
-   
-   
-   
-   
+
+ 1. **.splice(지울 인덱스, 인덱스로부터 지울 개수)**
+
+    - 배열의 중간 요소를 지울 수 있다.
+
+    - 배열의 중간 요소를 지우고 다른 요소를 추가 할 수 있다.
+
+    - 배열의 중간에 요소를 지우지 않고 추가 할 수 있다. 넣을 곳 .splice(넣을곳 인덱스, 0 , 값);
+
+      ```
+      const arr = [1, 2, 3, 4, 5];
+      arr.splice(1,2);
+      console.log(arr);
+      [1, 4, 5]
+      
+      const arr = [1, 2, 3, 4, 5];
+      arr.splice(0,2,11,22);
+      console.log(arr);
+      [11, 22, 3, 4, 5]
+      
+      const arr = [1, 2, 3, 4, 5];
+      arr.splice(2,0,22);
+      console.log(arr);
+      ```
+
+      
+
+2. **include**
+   - 배열에서 특정 요소를 찾을 수 있다.
