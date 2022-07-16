@@ -123,4 +123,29 @@ switch (val) {
 
    
 
+   ---
+   
+   ## [Array 배열]
+   
+   - 배열안에 배열 삽입가능. 
+   - 배열안의 요소는 elment
+   
+   ```javascript
+   const arrayOfArray = [[1, 2, 3], [4, 5]]
+   const arrayLength = arrayOfArray.length;
+   
+   // 배열의 마지막 요소를 찾는 방법 arrayIndex = arrayLength - 1;
+   문제 arr라는 배열이 있을 때 마지막에서 3번째 요소를 찾아보시오
+   답 : arr[arr.length -3];
+   
+   // 항상 배열의 마지막에 요소를 추가 하는법
+   arrayOfArray[arrayOfArray.length] = '6';
+   arrayOfArray.puth('6');
+   
+   // 배열 제일 앞에 요소를 추가 하는법
+   arrayOfArray.unshift('0');
+   ```
+   
+   
+   
    
