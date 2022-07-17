@@ -124,12 +124,12 @@ switch (val) {
    
 
    ---
-   
+
    ## [Array 배열]
-   
+
    - 배열안에 배열 삽입가능. 
    - 배열안의 요소는 elment
-   
+
    ```javascript
    const arrayOfArray = [[1, 2, 3], [4, 5]]
    const arrayLength = arrayOfArray.length;
@@ -154,40 +154,62 @@ switch (val) {
    
    ```
 
- 1. **.splice(지울 인덱스, 인덱스로부터 지울 개수)**
+   1. **.splice(지울 인덱스, 인덱스로부터 지울 개수)**
 
-    - 배열의 중간 요소를 지울 수 있다.
+      - 배열의 중간 요소를 지울 수 있다.
 
-    - 배열의 중간 요소를 지우고 다른 요소를 추가 할 수 있다.
 
-    - 배열의 중간에 요소를 지우지 않고 추가 할 수 있다. 넣을 곳 .splice(넣을곳 인덱스, 0 , 값);
+      - 배열의 중간 요소를 지우고 다른 요소를 추가 할 수 있다.
 
-      ```
-      const arr = [1, 2, 3, 4, 5];
-      arr.splice(1,2);
-      console.log(arr);
-      [1, 4, 5]
-      
-      const arr = [1, 2, 3, 4, 5];
-      arr.splice(0,2,11,22);
-      console.log(arr);
-      [11, 22, 3, 4, 5]
-      
-      const arr = [1, 2, 3, 4, 5];
-      arr.splice(2,0,22);
-      console.log(arr);
-      ```
 
-      
+      - 배열의 중간에 요소를 지우지 않고 추가 할 수 있다. 넣을 곳 .splice(넣을곳 인덱스, 0 , 값);
 
-2. **includes**
+        ```
+        const arr = [1, 2, 3, 4, 5];
+        arr.splice(1,2);
+        console.log(arr);
+        [1, 4, 5]
+        
+        const arr = [1, 2, 3, 4, 5];
+        arr.splice(0,2,11,22);
+        console.log(arr);
+        [11, 22, 3, 4, 5]
+        
+        const arr = [1, 2, 3, 4, 5];
+        arr.splice(2,0,22);
+        console.log(arr);
+        ```
 
-   - 배열에서 특정 요소를 찾을 수 있다. 있을 시 true 없을 시 false 반환.
+        
 
-     ```
-     const arr = [1, 2, 3, 4, 5];
-     const result = arr.includes(2);
-     console.log(result);
-     ```
+   2. **includes**
 
-     
+      - 배열에서 특정 요소를 찾을 수 있다. 있을 시 true 없을 시 false 반환.
+
+        ```
+        const arr = [1, 2, 3, 4, 5];
+        const result = arr.includes(2);
+        console.log(result);
+        ```
+
+
+   3. **indexOf**
+
+      - 배열에서 특정 요소를 찾아서 인덱스 반환 
+
+        ```javascript
+        const arr = ['가', '라', '다', '라', '마', '라'];
+        console.log(arr.indexOf('다'));
+        
+        // 문제 
+        // 위의 배열에서 라를 찾아 모두 지우세요 
+        
+        // 답
+        const arr = ['가', '라', '다', '라', '마', '라'];
+        while(arr.indexOf('라') > -1) {
+            console.log(arr);
+            arr.splice(arr.indexOf('라'),1);
+        }
+        ```
+
+        
