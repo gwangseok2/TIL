@@ -163,7 +163,7 @@ switch (val) {
 
 
       - 배열의 중간에 요소를 지우지 않고 추가 할 수 있다. 넣을 곳 .splice(넣을곳 인덱스, 0 , 값);
-
+    
         ```
         const arr = [1, 2, 3, 4, 5];
         arr.splice(1,2);
@@ -180,7 +180,8 @@ switch (val) {
         console.log(arr);
         ```
 
-        
+
+​        
 
    2. **includes**
 
@@ -245,14 +246,69 @@ switch (val) {
    const mutiple = (a, b, c) => a * b * c;
    ```
 
-1. **객체 리터럴**
+---
+
+## [**객체 리터럴**]
+
+- 숫자로 시작하거나, 특수 문자 들어갈 땐 문자열 '' 처리를 해줘야 함.
+- 대괄호로 객체 참조시 '' 로 감싸줘야 함.
+
+```javascript
+const sging = {
+	age: '27',
+	yeer: '1996',
+	name: '송광석',
+}
+
+// 접근 방법
+console.log(sging.age);
+
+// 대괄호 쓸 땐 문자열 '' 표시 필요.
+console.log(sging['age']);
+
+// 수정
+sging.age = '28';
+
+// 속성 제거
+delete sging.age;
+```
+
+---
+
+## [**method (매서드)**]
+
+- 객체의 속성 값으로 함수를 넣었을 때 이 속성을 매서드라고 합니다.
+
+  ```javascript
+  const debug = {
+  	log: function(value) {
+  		console.log(value);
+  	}
+  }
+  debug.log('ㅁㄴㅇㄴㅁㅇ','Method');
+  ```
+
+---
+
+## [객체의 비교]
+
+1. 객체끼리 {} === {} 비교 하면 항상 false를 반환 true가 나오려면 변수 안에 담아서 해야한다.
 
    ```javascript
-   const sging = {
-   	age: '27',
-   	yeer: '1996',
-   	name: '송광석',
-   }
+   const a = { name: 'sging'};
+   const array = [1, 2, a];
+   // true;
+   console.log(a === array[2]);
+   
+   // false
+   const b = [];
+   const c = [];
+   console.log(b === c)
+   
+   // true
+   const b = [];
+   const c = [b,'f', 'd'];
+   console.log(b === c[0]);
    ```
 
    
