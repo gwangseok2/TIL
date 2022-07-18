@@ -213,3 +213,46 @@ switch (val) {
         ```
 
         
+
+---
+
+## **[function 함수]**
+
+- 함수 선언문 function a() {}
+
+- 함수 표현식 const b = function() {};
+
+- 화살표 함수 const c = () => {};
+
+   ```javascript
+   // 매게변수 , 인수
+   
+   function a(x, y, z) {
+   	console.log(x, y, z);
+   	// 함수 선언문 안에서만 인수 들을 배열로 출력해준다.
+   	console.log(arguments);
+   }
+   a('hi', 'hellow', 'argument');
+   
+   // 문제 화살표 함수로 곱하기 기능을 만드시오
+   const multiple = (a, b, c) => {
+       return a * b * c;
+   }
+   const b = multiple(1, 5, 7);
+   console.log(b);
+   
+   // 화살표 함수는 중괄호 뒤에 바로 리턴이 오면 생략을 할 수 있다.
+   const mutiple = (a, b, c) => a * b * c;
+   ```
+
+1. **객체 리터럴**
+
+   ```javascript
+   const sging = {
+   	age: '27',
+   	yeer: '1996',
+   	name: '송광석',
+   }
+   ```
+
+   
