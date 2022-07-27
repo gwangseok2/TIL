@@ -325,3 +325,30 @@ delete sging.age;
    console.log(word[0]);
    result '안'
 ```
+
+## [Jquary $.ajax]
+- 업무중 사용했던 $.ajax
+```javascript
+ const paymentInfo = {
+    "phone": $("input[name=phone]").val().replaceAll('-', ""),
+    "userName": $("input[name=name]").val(),
+    "userEmail": $("input[name=email]").val(),
+    "classType": $(".class-time-btn.active").text(),
+    "ticketType": $(".ticket-btn.active").text(),
+    "grade": $(".event-section5 .select-box").val(),
+    "ClassHopeDay": hopeArrayOfArray,
+    "startHopeDay": timeArr,
+    "check": $("#checkbox").is(":checked"),
+}
+
+$.post("event/event_2022/08/event_qanda_payment_ps.php", {
+    data: JSON.stringify(paymentInfo)
+},  function(data, status) {
+    if(status == "success" && data == "success") {
+        class_fail_modal('결제 완료', '수강권 결제가 완료되었습니다<br>결제 정보 및 이후 프로세스는<br>학생 연락처로 발송된<br>카카오 알림톡을 참고해 주세요!','','확인');
+    } else {
+        console.log(status);
+    }
+});
+
+```
