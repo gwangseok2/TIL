@@ -316,6 +316,8 @@ delete sging.age;
 
 -   InnerText는 display: none; 속성이 적용된 text는 들고오지 않는다.
 
+---
+
 ## [문자열은 배열이다.]
 
 -   우리가 알고 있는 문자열(char)데이터는 그 자체가 배열이다.
@@ -325,6 +327,7 @@ delete sging.age;
    console.log(word[0]);
    result '안'
 ```
+---
 
 ## [Jquary $.ajax]
 - 업무중 사용했던 $.ajax
@@ -350,5 +353,55 @@ $.post("event/event_2022/08/event_qanda_payment_ps.php", {
         console.log(status);
     }
 });
+
+```
+---
+## [24시간 timer제작]
+
+```javascript
+    // 24시 타이머
+        setInterval(function time(){
+            let d = new Date();
+            let hours = 24 - d.getHours();
+            let min = 60 - d.getMinutes();
+            let sec = 60 - d.getSeconds();  
+            
+            let day = ('0' + d.getDate()).slice(-2);
+
+            if(min =='00') {
+                hours = 24 - d.getHours();
+            } else{
+                hours = 23 - d.getHours();
+            }
+
+            if(sec == '00'){
+                min = 60 - d.getMinutes();                      
+            } else {
+                min = 59 - d.getMinutes();
+                sec = 59 - d.getSeconds();
+            }
+
+            if((hours + '').length == 1){
+                hours = '0' + hours;
+            }
+
+            if((min + '').length == 1) {
+                min = '0' + min;
+            }
+
+            if((sec + '').length == 1) {
+                sec = '0' + sec;
+            }
+            //innerHtml = ''
+            $('#timer').html 
+                ('<span class="t_hour">'+hours+'</span>'+
+                '<span class="t_colon">:</span>'+
+                '<span class="t_min">'+min+'</span>'+
+                '<span class="t_colon">:</span>'+
+                '<span class="t_sec">'+sec+'</span>')
+            // document.quarySelector('.timer-box').style.display='flex';
+            $(".timer-box").css('display','inline-block');
+
+        }, 1000);
 
 ```
