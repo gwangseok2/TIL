@@ -106,7 +106,7 @@ switch (val) {
     for (i=0; i < 5; i++) {
         console.log(' '.repeat(i) + '*'.repeat(5-i));
     }
-
+    
     Result
      *****
       ****
@@ -125,27 +125,27 @@ switch (val) {
     ```javascript
     const arrayOfArray = [[1, 2, 3], [4, 5]]
     const arrayLength = arrayOfArray.length;
-
+    
     // 배열의 마지막 요소를 찾는 방법 arrayIndex = arrayLength - 1;
     문제 arr라는 배열이 있을 때 마지막에서 3번째 요소를 찾아보시오
     답 : arr[arr.length -3];
-
+    
     // 항상 배열의 마지막에 요소를 추가 하는법
     arrayOfArray[arrayOfArray.length] = '6';
     arrayOfArray.push('6');
-
+    
     // 배열 마지막요소 제거하기.
     arrayOfArray.pop();
-
+    
     // 배열 제일 앞에 요소를 추가 하는법
     arrayOfArray.unshift('0');
-
+    
     // 배열의 첫 번째 요소 제거하기.
     arrayOfArray.shift();
 
 
     ```
-
+    
     1. **.splice(지울 인덱스, 인덱스로부터 지울 개수)**
 
 -   배열의 중간 요소를 지울 수 있다.
@@ -154,24 +154,24 @@ switch (val) {
 
 
         - 배열의 중간에 요소를 지우지 않고 추가 할 수 있다. 넣을 곳 .splice(넣을곳 인덱스, 0 , 값);
-
+    
           ```
           const arr = [1, 2, 3, 4, 5];
           arr.splice(1,2);
           console.log(arr);
           [1, 4, 5]
-
+    
           const arr = [1, 2, 3, 4, 5];
           arr.splice(0,2,11,22);
           console.log(arr);
           [11, 22, 3, 4, 5]
-
+    
           const arr = [1, 2, 3, 4, 5];
           arr.splice(2,0,22);
           console.log(arr);
           ```
 
-​
+
 
 2. **includes**
 
@@ -190,10 +190,10 @@ switch (val) {
         ```javascript
         const arr = ["가", "라", "다", "라", "마", "라"];
         console.log(arr.indexOf("다"));
-
+        
         // 문제
         // 위의 배열에서 라를 찾아 모두 지우세요
-
+        
         // 답
         const arr = ["가", "라", "다", "라", "마", "라"];
         while (arr.indexOf("라") > -1) {
@@ -214,21 +214,21 @@ switch (val) {
 
     ```javascript
     // 매게변수 , 인수
-
+    
     function a(x, y, z) {
         console.log(x, y, z);
         // 함수 선언문 안에서만 인수 들을 배열로 출력해준다.
         console.log(arguments);
     }
     a("hi", "hellow", "argument");
-
+    
     // 문제 화살표 함수로 곱하기 기능을 만드시오
     const multiple = (a, b, c) => {
         return a * b * c;
     };
     const b = multiple(1, 5, 7);
     console.log(b);
-
+    
     // 화살표 함수는 중괄호 뒤에 바로 리턴이 오면 생략을 할 수 있다.
     const mutiple = (a, b, c) => a * b * c;
     ```
@@ -288,12 +288,12 @@ delete sging.age;
     const array = [1, 2, a];
     // true;
     console.log(a === array[2]);
-
+    
     // false
     const b = [];
     const c = [];
     console.log(b === c);
-
+    
     // true
     const b = [];
     const c = [b, "f", "d"];
@@ -329,79 +329,3 @@ delete sging.age;
 ```
 ---
 
-## [Jquary $.ajax]
-- 업무중 사용했던 $.ajax
-```javascript
- const paymentInfo = {
-    "phone": $("input[name=phone]").val().replaceAll('-', ""),
-    "userName": $("input[name=name]").val(),
-    "userEmail": $("input[name=email]").val(),
-    "classType": $(".class-time-btn.active").text(),
-    "ticketType": $(".ticket-btn.active").text(),
-    "grade": $(".event-section5 .select-box").val(),
-    "ClassHopeDay": hopeArrayOfArray,
-    "startHopeDay": timeArr,
-    "check": $("#checkbox").is(":checked"),
-}
-
-$.post("event/event_2022/08/event_qanda_payment_ps.php", {
-    data: JSON.stringify(paymentInfo)
-},  function(data, status) {
-    if(status == "success" && data == "success") {
-        class_fail_modal('결제 완료', '수강권 결제가 완료되었습니다<br>결제 정보 및 이후 프로세스는<br>학생 연락처로 발송된<br>카카오 알림톡을 참고해 주세요!','','확인');
-    } else {
-        console.log(status);
-    }
-});
-
-```
----
-## [24시간 timer제작]
-
-```javascript
-    // 24시 타이머
-        setInterval(function time(){
-            let d = new Date();
-            let hours = 24 - d.getHours();
-            let min = 60 - d.getMinutes();
-            let sec = 60 - d.getSeconds();  
-            
-            let day = ('0' + d.getDate()).slice(-2);
-
-            if(min =='00') {
-                hours = 24 - d.getHours();
-            } else{
-                hours = 23 - d.getHours();
-            }
-
-            if(sec == '00'){
-                min = 60 - d.getMinutes();                      
-            } else {
-                min = 59 - d.getMinutes();
-                sec = 59 - d.getSeconds();
-            }
-
-            if((hours + '').length == 1){
-                hours = '0' + hours;
-            }
-
-            if((min + '').length == 1) {
-                min = '0' + min;
-            }
-
-            if((sec + '').length == 1) {
-                sec = '0' + sec;
-            }
-            //innerHtml = ''
-            $('#timer').html 
-                ('<span class="t_hour">'+hours+'</span>'+
-                '<span class="t_colon">:</span>'+
-                '<span class="t_min">'+min+'</span>'+
-                '<span class="t_colon">:</span>'+
-                '<span class="t_sec">'+sec+'</span>')
-            // document.quarySelector('.timer-box').style.display='flex';
-            $(".timer-box").css('display','inline-block');
-
-        }, 1000);
-
-```
