@@ -329,3 +329,4 @@ delete sging.age;
 ```
 ---
 
+## [고차함수 high order function]
