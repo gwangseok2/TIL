@@ -330,3 +330,21 @@ delete sging.age;
 ---
 
 ## [고차함수 high order function]
+
+
+## [Set]
+- for문 보다 훨씬 빠르다. 중복 없음 
+```javascript
+    let test = new Set();
+    
+    // set에 값 입력.
+    test.add()
+
+    // true false 반환 있는지 
+    test.has()
+
+    test.add('팡석');
+    
+    console.log(test.has('팡석'));
+
+```

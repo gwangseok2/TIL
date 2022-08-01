@@ -7,7 +7,7 @@
 - 업무중 사용했던 $.ajax
 
 ```javascript
- const paymentInfo = {
+const paymentInfo = {
     "phone": $("input[name=phone]").val().replaceAll('-', ""),
     "userName": $("input[name=name]").val(),
     "userEmail": $("input[name=email]").val(),
@@ -31,54 +31,59 @@ $.post("event/event_2022/08/event_qanda_payment_ps.php", {
 
 ```
 
+
 ---
 
 ## [24시간 timer제작]
 
 ```javascript
-    // 24시 타이머
-        setInterval(function time(){
-            let d = new Date();
-            let hours = 24 - d.getHours();
-            let min = 60 - d.getMinutes();
-            let sec = 60 - d.getSeconds();  
-            
-            let day = ('0' + d.getDate()).slice(-2);
+// 24시 타이머
+setInterval(function time(){
+    let d = new Date();
+    let hours = 24 - d.getHours();
+    let min = 60 - d.getMinutes();
+    let sec = 60 - d.getSeconds();  
+    
+    let day = ('0' + d.getDate()).slice(-2);
 
-            if(min =='00') {
-                hours = 24 - d.getHours();
-            } else{
-                hours = 23 - d.getHours();
-            }
+    if(min =='00') {
+        hours = 24 - d.getHours();
+    } else{
+        hours = 23 - d.getHours();
+    }
 
-            if(sec == '00'){
-                min = 60 - d.getMinutes();                      
-            } else {
-                min = 59 - d.getMinutes();
-                sec = 59 - d.getSeconds();
-            }
+    if(sec == '00'){
+        min = 60 - d.getMinutes();                      
+    } else {
+        min = 59 - d.getMinutes();
+        sec = 59 - d.getSeconds();
+    }
 
-            if((hours + '').length == 1){
-                hours = '0' + hours;
-            }
+    if((hours + '').length == 1){
+        hours = '0' + hours;
+    }
 
-            if((min + '').length == 1) {
-                min = '0' + min;
-            }
+    if((min + '').length == 1) {
+        min = '0' + min;
+    }
 
-            if((sec + '').length == 1) {
-                sec = '0' + sec;
-            }
-            //innerHtml = ''
-            $('#timer').html 
-                ('<span class="t_hour">'+hours+'</span>'+
-                '<span class="t_colon">:</span>'+
-                '<span class="t_min">'+min+'</span>'+
-                '<span class="t_colon">:</span>'+
-                '<span class="t_sec">'+sec+'</span>')
-            // document.quarySelector('.timer-box').style.display='flex';
-            $(".timer-box").css('display','inline-block');
+    if((sec + '').length == 1) {
+        sec = '0' + sec;
+    }
+    //innerHtml = ''
+    $('#timer').html 
+        ('<span class="t_hour">'+hours+'</span>'+
+        '<span class="t_colon">:</span>'+
+        '<span class="t_min">'+min+'</span>'+
+        '<span class="t_colon">:</span>'+
+        '<span class="t_sec">'+sec+'</span>')
+    // document.quarySelector('.timer-box').style.display='flex';
+    $(".timer-box").css('display','inline-block');
 
-        }, 1000);
+}, 1000);
 
 ```
+
+## [Vue.js + Nuxt.js + tranlation API 연동.]
+
+- 
