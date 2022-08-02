@@ -83,7 +83,85 @@ setInterval(function time(){
 }, 1000);
 
 ```
+---
+## [Img timer 구현]
 
+```javascript
+<script>
+    const timer = setInterval(function time() {
+        let d = new Date();
+        let hours = 24 - d.getHours();
+        let min = 60 - d.getMinutes();
+        let sec = 60 - d.getSeconds();
+        const D_day = 28;
+        let day = ("0" + d.getDate()).slice(-2);
+        let now_day = D_day - day;
+        if (min == "00") {
+            hours = 24 - d.getHours();
+        } else {
+            hours = 23 - d.getHours();
+        }
+        if (sec == "00") {
+            min = 60 - d.getMinutes();
+        } else {
+            min = 59 - d.getMinutes();
+            sec = 59 - d.getSeconds();
+        }
+        if ((hours + "").length == 1) {
+            hours = "0" + hours;
+        }
+        if ((min + "").length == 1) {
+            min = "0" + min;
+        }
+        if ((sec + "").length == 1) {
+            sec = "0" + sec;
+        }
+        const hoursArr = String(hours).split("");
+        const minArr = String(min).split("");
+        const secArr = String(sec).split("");
+        hoursArr[0] = cardArr[Number(hoursArr[0])];
+        hoursArr[1] = cardArr[Number(hoursArr[1])];
+        minArr[0] = cardArr[Number(minArr[0])];
+        minArr[1] = cardArr[Number(minArr[1])];
+        secArr[0] = cardArr[Number(secArr[0])];
+        secArr[1] = cardArr[Number(secArr[1])];
+        const hoursCard0 = hoursArr[0];
+        const hoursCard1 = hoursArr[1];
+        const minCard0 = minArr[0];
+        const minCard1 = minArr[1];
+        const secCard0 = secArr[0];
+        const secCard1 = secArr[1];
+
+        $("#timer").html(
+            "<span>" +
+                hoursCard0 +
+                "</span>" +
+                "<span>" +
+                hoursCard1 +
+                "</span>" +
+                "<figure>:</figure>" +
+                "<span>" +
+                minCard0 +
+                "</span>" +
+                "<span>" +
+                minCard1 +
+                "</span>" +
+                "<figure>:</figure>" +
+                "<span>" +
+                secCard0 +
+                "</span>" +
+                "<span>" +
+                secCard1 +
+                "</span>"
+        );
+
+        $(".float_btn").show();
+        $(".float_btn .timer_wrapper").css({ display: "flex" });
+    }, 1000);
+</script>
+```
 ## [Vue.js + Nuxt.js + tranlation API 연동.]
 
 - 
+
+
