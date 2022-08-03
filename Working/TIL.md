@@ -164,4 +164,9 @@ setInterval(function time(){
 
 - 
 
+## [Kafka & Redis]
+
+1. Kafka : 디자인 패턴 pub sub을 사용해서 메세지 큐 병렬처리
+
+2. Redis : 디자인 패턴 pub sub을 덤으로 제공하는 느낌. 고성능의 DB에 데이터를 캐싱해 빠른 처리 가능 휘발성이 그대신 강하다.
 
