@@ -170,3 +170,67 @@ setInterval(function time(){
 
 2. Redis : 디자인 패턴 pub sub을 덤으로 제공하는 느낌. 고성능의 DB에 데이터를 캐싱해 빠른 처리 가능 휘발성이 그대신 강하다.
 
+
+---
+
+## [tagWrapping 후 번역 api 연동]
+
+```javascript
+    beforeMount() {
+        this.spanTagWrapping()
+    },
+    // span wrapping
+    spanTagWrapping() {
+      for (let i = 0; i < this.sentenceArr.length; i++) {
+        let content = this.sentenceArr[i].originalSentence
+        content = content.replace(/\n/g, '')
+        content = content.split(' ')
+        this.sentenceArr[i].originalSentence = ''
+        for (let j = 0; j < content.length; j++) {
+          const testWord = `<span class='word'><span class=''></span>${content[j]}</span> `
+
+          this.sentenceArr[i].originalSentence += testWord
+        }
+      }
+    },
+
+    // 말풍선 Open
+    async tooltipOpen(event) {
+      this.translationWord = '번역중...'
+      const $eventTarget = event.target
+      const $wordBox = document.querySelectorAll('.word-box')
+
+      this.speedCheck = !this.speedCheck
+
+      if (this.speedCheck && $eventTarget.className === 'word') {
+        // api쪽으로 데이터 전달
+        const tsVal = $eventTarget.innerText
+        this.translationWord = await this.tranlation(tsVal)
+
+        // 번역값 출력
+        $eventTarget.children[0].innerText = this.translationWord
+        $eventTarget.children[0].classList.add('word-box')
+      }
+
+      // 말풍선 Close
+      if (this.speedCheck && $wordBox.length > 0) {
+        for (let i = 0; i < $wordBox.length; i++) {
+          $wordBox[i].classList.remove('word-box')
+          $wordBox[i].innerText = ''
+        }
+      }
+
+      // 스피드체크 false로 변경
+      this.speedCheck = !this.speedCheck
+    },
+
+    // google api호출
+    async tranlation(tsVal) {
+      const res = await axios.post(
+        `https://translation.googleapis.com/language/translate/key값`,
+        { q: tsVal, target: 'ko' }
+      )
+      const translation = res.data.data.translations[0].translatedText
+      return translation
+    },
+```
