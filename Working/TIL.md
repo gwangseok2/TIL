@@ -234,3 +234,5 @@ setInterval(function time(){
       return translation
     },
 ```
+
+## [process.env 관련]
