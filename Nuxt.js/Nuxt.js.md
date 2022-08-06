@@ -21,3 +21,24 @@
 3. asyncData()는 컨텍스트 객체를 첫번째 인수로 받으며, 이를 사용해 일부 데이터를 가져와 컴포넌트 데이터를 반환할 수 있다.
 4. asyncData()의 return값은 컴포넌트의 data와 병합된다.
 5. asyncData()는 컴포넌트를 초기화 하기 전에 실행되기 때문에 메서드 내부에서는 this를 통해 컴포넌트 인스턴스에 접근할 수 없다.
+
+## [process.env 개발 배포 환경 분리]
+
+1. $ npm install @nuxtjs/dotenv 루트 디렉토리에 .env.dev .env.prod 파일 생성.
+2. package.json에 스크립트별 환경 설정
+```javascript
+ "scripts": {
+    "dev": "nuxt --dotenv .env.dev",
+    "build": "nuxt build --dotenv .env.prod",
+    "start": "nuxt start --dotenv .env.prod",
+ }
+```
+3. nuxt.config.js에 환경변수 설정
+```javascript
+require('dotenv').config()
+export default {
+  env: {
+    ENV: process.env.ENV,
+    API_KEY: process.env.API_KEY
+  },
+```
