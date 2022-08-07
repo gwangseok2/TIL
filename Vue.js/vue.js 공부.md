@@ -10,32 +10,32 @@
 
 ## [computed]
 
--   **Computed속성** : 단순한 연산 이외에 연산 작업을 사용할 시 Computed속성을 사용해서 하면 캐싱도 될 뿐더러 속도에 용이하다. vue.js의 Dom 생성 전 연산을 끝낸 결과 값을 캐싱하여 불러온다. methods로도 사용 가능하지만 method로 사용하게 되면 Dom생성 후 연산 작업때 마다 함수를 호출하기 때문에 복잡한 연산 작업은 Computed 속성으로 사용하는 것이 좋다. 더 나아가 변경점이 생길 시에는 재연산을 해준다. computed안에 정의된 함수는() 없이 호출한다.
+- **Computed속성** : 단순한 연산 이외에 연산 작업을 사용할 시 Computed속성을 사용해서 하면 캐싱도 될 뿐더러 속도에 용이하다. vue.js의 Dom 생성 전 연산을 끝낸 결과 값을 캐싱하여 불러온다. methods로도 사용 가능하지만 method로 사용하게 되면 Dom생성 후 연산 작업때 마다 함수를 호출하기 때문에 복잡한 연산 작업은 Computed 속성으로 사용하는 것이 좋다. 더 나아가 변경점이 생길 시에는 재연산을 해준다. computed안에 정의된 함수는() 없이 호출한다.
 
--   ```vue
-    <div> 
-        {{reversedMessage}}
-        {{reversedMessage}}
-        {{reversedMessage}}
-    </div>
-    <Script>
-    	export default{
-            data() {
-                return {
-                    message:'다된전반'
-                }
-            },
-            // Dom생성 전 연산을 저장
-            computed: {
-                reversedMessage() {
-                    return {
-                        this.mesaage.split('').reverse().join('')
-                    }
-                }
-            }
-        }
-    </Script>
-    ```
+- ```vue
+  <div> 
+      {{reversedMessage}}
+      {{reversedMessage}}
+      {{reversedMessage}}
+  </div>
+  <Script>
+  	export default{
+          data() {
+              return {
+                  message:'다된전반'
+              }
+          },
+          // Dom생성 전 연산을 저장
+          computed: {
+              reversedMessage() {
+                  return {
+                      this.mesaage.split('').reverse().join('')
+                  }
+              }
+          }
+      }
+  </Script>
+  ```
 
 ---
 
@@ -69,7 +69,7 @@ created() {
 
 ## [Watch]
 
--   watch속성은 데이터를 감시하고 있다가 데이터가 변경 됐을 때 매게변수로 **newVal**와 **oldVal**을 **순서대로** 매게변수로 받는다. 사용법은 아래와 같다.
+- watch속성은 데이터를 감시하고 있다가 데이터가 변경 됐을 때 매게변수로 **newVal**와 **oldVal**을 **순서대로** 매게변수로 받는다. 사용법은 아래와 같다.
 
 ```vue
 <div>
@@ -109,16 +109,10 @@ created() {
 
 ## [Vue.js 버튼 토글 컨트롤]
 
--   v-for문으로 (item, index) 배열 돌린 후 배열에 :class={active : isActive} 바인딩 후 onclick methods 실행
+- v-for문으로 (item, index) 배열 돌린 후 배열에 :class={active : isActive} 바인딩 후 onclick methods 실행
 
 ```vue
-<div
-    v-for="(item, index) in btnArr"
-    :key="item.id"
-    class="btn-item"
-    :class="{ active: isAcitve }"
-    @click="toggleActive(index)"
->
+<div v-for="(item, index) in btnArr" :key="item.id" class="btn-item" :class="{ active: isAcitve }" @click="toggleActive(index)">
     {{ item.name }}
 </div>
 <script>
@@ -163,3 +157,20 @@ props: { title : { type: String, default:'' }, soundUrl : { type: String, defaul
 ## [splice를 사용하면 안됨 ]
 
 SPA 싱글 페이지 어플리케이션에선 데이터 배열을 splice로 제어 하지말고 slice로 제어를 해야함.
+
+---
+
+# [2022 08 07]
+
+## [exLint multi-word-component error 제거]
+
+```javascript
+'vue/multi-word-component-names': [
+    'error',
+    {
+        ignores: ['index'],
+    },
+],
+```
+
+-
