@@ -10,3 +10,9 @@
 ## [typora]
 
 1. 마크다운 에디터 편하게 작성 가능하게 도와줌.
+
+---
+
+## [jsonplaceholder.typicode.com]
+
+1. open API를 테스트 해볼 수 있는 사이트. mock api 페이크 서버.
