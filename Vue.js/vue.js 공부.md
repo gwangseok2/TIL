@@ -173,4 +173,11 @@ SPA 싱글 페이지 어플리케이션에선 데이터 배열을 splice로 제�
 ],
 ```
 
--
+---
+
+## [component 쉽게 import 하는 방법]
+
+```javascript
+// 아래처럼 컴포넌트 명 까지만 입력하고 텝을 치면 자동으로 import 된다.
+<Component
+```
