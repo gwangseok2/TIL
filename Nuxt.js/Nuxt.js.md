@@ -26,10 +26,11 @@
 
 ## [process.env 개발 배포 환경 분리]
 
-1. $ npm install @nuxtjs/dotenv 루트 디렉토리에 .env.dev .env.prod 파일 생성.
-2. package.json에 스크립트별 환경 설정
+1. $ npm install @nuxtjs/dotenv 루트 디렉토리에 .env.dev .env.prod 파일 생성. 로컬 환경은 .env.local
+2. 각각의 파일 안에 BASE_URL=http://www.naver.com 이런식으로 설정.
 
 ```javascript
+// npm run dev로 실행했을 때 .env.dev의 파일을 읽는다.
  "scripts": {
     "dev": "nuxt --dotenv .env.dev",
     "build": "nuxt build --dotenv .env.prod",
@@ -41,10 +42,10 @@
 
 ```javascript
 require('dotenv').config()
+// nuxt.config.js가 실행될 때 env객체 BASE_URL을 만들어 안에 그 값을 저장한다.
 export default {
   env: {
-    ENV: process.env.ENV,
-    API_KEY: process.env.API_KEY
+    BASE_URL: process.env.BASE_URL,
   },
 ```
 
@@ -53,3 +54,24 @@ export default {
 ## [context]
 
 https://nuxtjs.org/docs/internals-glossary/context/
+
+---
+
+## [proxy]
+
+1. nuxt.config.js파일에서 아래의 옵션 첨부
+
+```javascript
+  axios: {
+    proxy: true,
+  },
+
+  proxy: {
+    // axios 호출 url 뒤에 /api가 오면 아래의 선언된 곳으로 api를 쏜다.
+    '/api': 'http://google.com:8080',
+  },
+
+
+```
+
+---
