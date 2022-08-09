@@ -181,3 +181,45 @@ SPA 싱글 페이지 어플리케이션에선 데이터 배열을 splice로 제�
 // 아래처럼 컴포넌트 명 까지만 입력하고 텝을 치면 자동으로 import 된다.
 <Component
 ```
+
+---
+
+## [component v-model]
+
+- 컴포넌트에서도 v-model 사용 가능 search검색 같은 value값을 양방향 바인딩 할 때
+
+```javascript
+// 부모 v-model 값을 props에 value로 전달
+<inputComponent v-model="keyWord"/>
+data() {
+    return{
+        keyWord:''
+    }
+}
+
+// 자식 컴포넌트 emit으로 인풋 이벤트 위로 올림.
+<input :value="value" @input="$emit('input', $event.target.value)"/>
+props: {
+    value{
+        type:String,
+        default:''
+    }
+}
+
+```
+
+---
+
+## [$emit]
+
+-자식 컴포넌트 이벤트를 부모에게 전달함.
+
+- $emit('전달 할 이벤트 이름')
+
+```javascript
+// 부모
+<InputComponent @search="method"/>
+
+// 자식 컴포넌트 @click 이벤트 발동시 emit안에 있는 이벤트로 넘김
+<input type="text" @click="$emit('search')"/>
+```
