@@ -223,3 +223,5 @@ props: {
 // 자식 컴포넌트 @click 이벤트 발동시 emit안에 있는 이벤트로 넘김
 <input type="text" @click="$emit('search')"/>
 ```
+
+---
