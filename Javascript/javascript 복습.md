@@ -326,6 +326,12 @@ delete sging.age;
    result '안'
 ```
 
+```javascript
+IF(word[length-1]) {
+  //배열의 마지막 단어를 선택함.
+}
+```
+
 ---
 
 ## [고차함수 high order function]
