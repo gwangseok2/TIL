@@ -8,29 +8,31 @@
 
 ```javascript
 const paymentInfo = {
-    "phone": $("input[name=phone]").val().replaceAll('-', ""),
-    "userName": $("input[name=name]").val(),
-    "userEmail": $("input[name=email]").val(),
-    "classType": $(".class-time-btn.active").text(),
-    "ticketType": $(".ticket-btn.active").text(),
-    "grade": $(".event-section5 .select-box").val(),
-    "ClassHopeDay": hopeArrayOfArray,
-    "startHopeDay": timeArr,
-    "check": $("#checkbox").is(":checked"),
-}
+  phone: $("input[name=phone]").val().replaceAll("-", ""),
+  userName: $("input[name=name]").val(),
+  userEmail: $("input[name=email]").val(),
+  classType: $(".class-time-btn.active").text(),
+  ticketType: $(".ticket-btn.active").text(),
+  grade: $(".event-section5 .select-box").val(),
+  ClassHopeDay: hopeArrayOfArray,
+  startHopeDay: timeArr,
+  check: $("#checkbox").is(":checked"),
+};
 
-$.post("event/event_2022/08/event_qanda_payment_ps.php", {
-    data: JSON.stringify(paymentInfo)
-},  function(data, status) {
-    if(status == "success" && data == "success") {
-        class_fail_modal('결제 완료', '수강권 결제가 완료되었습니다<br>결제 정보 및 이후 프로세스는<br>학생 연락처로 발송된<br>카카오 알림톡을 참고해 주세요!','','확인');
+$.post(
+  "event/event_2022/08/event_qanda_payment_ps.php",
+  {
+    data: JSON.stringify(paymentInfo),
+  },
+  function (data, status) {
+    if (status == "success" && data == "success") {
+      class_fail_modal("결제 완료", "수강권 결제가 완료되었습니다<br>결제 정보 및 이후 프로세스는<br>학생 연락처로 발송된<br>카카오 알림톡을 참고해 주세요!", "", "확인");
     } else {
-        console.log(status);
+      console.log(status);
     }
-});
-
+  }
+);
 ```
-
 
 ---
 
@@ -38,52 +40,59 @@ $.post("event/event_2022/08/event_qanda_payment_ps.php", {
 
 ```javascript
 // 24시 타이머
-setInterval(function time(){
-    let d = new Date();
-    let hours = 24 - d.getHours();
-    let min = 60 - d.getMinutes();
-    let sec = 60 - d.getSeconds();  
-    
-    let day = ('0' + d.getDate()).slice(-2);
+setInterval(function time() {
+  let d = new Date();
+  let hours = 24 - d.getHours();
+  let min = 60 - d.getMinutes();
+  let sec = 60 - d.getSeconds();
 
-    if(min =='00') {
-        hours = 24 - d.getHours();
-    } else{
-        hours = 23 - d.getHours();
-    }
+  let day = ("0" + d.getDate()).slice(-2);
 
-    if(sec == '00'){
-        min = 60 - d.getMinutes();                      
-    } else {
-        min = 59 - d.getMinutes();
-        sec = 59 - d.getSeconds();
-    }
+  if (min == "00") {
+    hours = 24 - d.getHours();
+  } else {
+    hours = 23 - d.getHours();
+  }
 
-    if((hours + '').length == 1){
-        hours = '0' + hours;
-    }
+  if (sec == "00") {
+    min = 60 - d.getMinutes();
+  } else {
+    min = 59 - d.getMinutes();
+    sec = 59 - d.getSeconds();
+  }
 
-    if((min + '').length == 1) {
-        min = '0' + min;
-    }
+  if ((hours + "").length == 1) {
+    hours = "0" + hours;
+  }
 
-    if((sec + '').length == 1) {
-        sec = '0' + sec;
-    }
-    //innerHtml = ''
-    $('#timer').html 
-        ('<span class="t_hour">'+hours+'</span>'+
-        '<span class="t_colon">:</span>'+
-        '<span class="t_min">'+min+'</span>'+
-        '<span class="t_colon">:</span>'+
-        '<span class="t_sec">'+sec+'</span>')
-    // document.quarySelector('.timer-box').style.display='flex';
-    $(".timer-box").css('display','inline-block');
+  if ((min + "").length == 1) {
+    min = "0" + min;
+  }
 
+  if ((sec + "").length == 1) {
+    sec = "0" + sec;
+  }
+  //innerHtml = ''
+  $("#timer").html(
+    '<span class="t_hour">' +
+      hours +
+      "</span>" +
+      '<span class="t_colon">:</span>' +
+      '<span class="t_min">' +
+      min +
+      "</span>" +
+      '<span class="t_colon">:</span>' +
+      '<span class="t_sec">' +
+      sec +
+      "</span>"
+  );
+  // document.quarySelector('.timer-box').style.display='flex';
+  $(".timer-box").css("display", "inline-block");
 }, 1000);
-
 ```
+
 ---
+
 ## [Img timer 구현]
 
 ```javascript
@@ -160,16 +169,16 @@ setInterval(function time(){
     }, 1000);
 </script>
 ```
+
 ## [Vue.js + Nuxt.js + tranlation API 연동.]
 
-- 
+-
 
 ## [Kafka & Redis]
 
 1. Kafka : 디자인 패턴 pub sub을 사용해서 메세지 큐 병렬처리
 
 2. Redis : 디자인 패턴 pub sub을 덤으로 제공하는 느낌. 고성능의 DB에 데이터를 캐싱해 빠른 처리 가능 휘발성이 그대신 강하다.
-
 
 ---
 
@@ -236,3 +245,36 @@ setInterval(function time(){
 ```
 
 ## [process.env 관련]
+
+---
+
+## [Observe API를 이용한 페이지 속도 개선 코드 이미지]
+
+```javascript
+// lazyload 돔 컨텐츠가 로드되면 실행
+document.addEventListener("DOMContentLoaded", function () {
+  // target
+  const lazys = document.querySelectorAll(".lazy");
+
+  // option
+  const options = {};
+
+  // function
+  const callback = (entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        var gif = entry.target;
+        gif.classList.remove("lazy");
+      }
+    });
+  };
+
+  // observer 생성
+  const observer = new IntersectionObserver(callback, options);
+
+  // loop 감지
+  lazys.forEach((val) => {
+    observer.observe(val);
+  });
+});
+```
