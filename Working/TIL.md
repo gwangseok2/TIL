@@ -278,3 +278,110 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 ```
+
+## [Backand API를 연동해 Nuxt에서 페이지 네이션.]
+
+- 10개씩 불러오는 페이지네이션 됨 지금 내 실력은 여기까지지만 더 디벨롭 할 수 있을 듯 .
+
+```javascript
+props: {
+    value: {
+      type: Number,
+      default: undefined,
+    },
+    type: {
+      type: String,
+      default: undefined,
+    },
+  },
+data() {
+    return {
+      pageArr: [],
+      listArr: this.$store.state.list,
+      pageNumber: 0,
+    }
+  },
+
+  watch: {
+    value(totalPage) {
+      this.totalPage = totalPage
+
+      this.addToPageNumber(totalPage)
+    },
+    type(pageType) {
+      this.pageType = pageType
+    },
+  },
+
+  created() {
+    this.addToPageNumber(this.value)
+  },
+methods: {
+    addToPageNumber(totalPage) {
+      for (let i = 0; i < totalPage; i++) {
+        this.pageArr.push({ id: i + 1, isActive: false, hidden: false })
+
+        if (i === 0) {
+          this.pageArr[0].isActive = true
+        }
+
+        if (i >= 10) {
+          this.pageArr[i].hidden = true
+        }
+      }
+    },
+    async moveToPage(index, type) {
+      // 왼쪽 버튼
+      if (type === 'leftBtn' && this.pageNumber !== 0) {
+        // 마지막 래프트 버튼 이벤트
+        if (this.pageNumber > 0 && this.pageNumber % 10 === 0) {
+          for (let i = this.pageNumber; i > this.pageNumber - 11; i--) {
+            this.pageArr[i].hidden = false
+          }
+          for (let j = this.pageNumber; j < this.value; j++) {
+            this.pageArr[j].hidden = true
+          }
+        }
+
+        await this.$store.dispatch(FETCH_TOTAL, { type: this.type, pageNumber: this.pageNumber - 1 })
+        this.pageNumber = this.pageNumber - 1
+        // 오른쪽 버튼
+      } else if (type === 'rightBtn' && this.value - 1 !== this.pageNumber) {
+        await this.$store.dispatch(FETCH_TOTAL, { type: this.type, pageNumber: this.pageNumber + 1 })
+        this.pageNumber = this.pageNumber + 1
+
+        // 마지막 오른쪽 버튼 이벤트
+        if (this.pageNumber > 0 && this.pageNumber % 10 === 0) {
+          const count = this.value - this.pageNumber
+          if (count > 10) {
+            for (let i = this.pageNumber; i < this.pageNumber + 10; i++) {
+              this.pageArr[i].hidden = false
+            }
+          } else {
+            for (let i = this.pageNumber; i < this.pageNumber + count; i++) {
+              this.pageArr[i].hidden = false
+            }
+          }
+
+          for (let j = this.pageNumber - 1; j >= 0; j--) {
+            this.pageArr[j].hidden = true
+          }
+        }
+
+        // 페이지 숫자 버튼 이벤트
+      } else {
+        await this.$store.dispatch(FETCH_TOTAL, { type: this.type, pageNumber: index })
+        this.pageNumber = index
+      }
+
+      // 버튼 class제어
+      this.pageArr.forEach(function (item) {
+        item.isActive = false
+      })
+      this.pageArr[this.pageNumber].isActive = !this.pageArr[this.pageNumber].isActive
+    },
+  },
+}
+});
+```
+
