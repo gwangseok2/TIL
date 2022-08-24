@@ -75,3 +75,40 @@ https://nuxtjs.org/docs/internals-glossary/context/
 ```
 
 ---
+
+## [nuxtServerInit]
+
+nuxtServerInit 함수는 넉스트의 $store actions에서 사용 가능하며, 특수한 동작을 하게된다. Nuxt의 universal 모드에서
+사용 가능하며, SSR랜더 시점에서 실행되기 때문에 미리 데이터를 다루거나 서버에서만 접근 가능한 데이터를 다룰 때 사용한다.
+
+- 일종의 라이프 사이클 훅
+
+asyncData보다 이른 시점에 호출.
+
+```javascript
+  actions: {
+    nuxtServerInit(storeContext, nuxtContext) {
+      storeContext.commit('뮤테이션 함수명');
+    }
+  }
+```
+
+---
+
+## [Nuxt.js에서 OG 활용 법]
+
+- 업무 중에 페이지별로 OG를 다르게 해야하는 상황이 발생하였다 이것의 해결 방법을 찾았다..
+
+```javascript
+ head() {
+    return {
+      meta: [
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: `${this.s3Url + this.detailarray.image}`,
+        },
+      ],
+    }
+  },
+```
