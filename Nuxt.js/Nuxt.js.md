@@ -98,6 +98,7 @@ asyncData보다 이른 시점에 호출.
 ## [Nuxt.js에서 OG 활용 법]
 
 - 업무 중에 페이지별로 OG를 다르게 해야하는 상황이 발생하였다 이것의 해결 방법을 찾았다..
+  백틱을 사용하여 데이터도 바인딩 가능
 
 ```javascript
  head() {
@@ -111,4 +112,29 @@ asyncData보다 이른 시점에 호출.
       ],
     }
   },
+```
+
+## [Nuxt.js Selectbox computed 활용]
+
+```html
+<select v-model="selectedItem" class="category-select" @change="filterList">
+  <option value="전체">전체</option>
+  <option v-for="(item, index) in menuArray" :key="index">{{ item }}</option>
+</select>
+```
+
+```javascript
+computed:{
+  menuArray() {
+    // api 데이터 리스트
+    const targetArr = this.advancedArr
+    const array = new Set()
+    if (targetArr.content) {
+      targetArr.content.forEach(function (item) {
+        array.add(item.smallCategory)
+      })
+    }
+    return (targetArr.newAry = Array.from(array))
+  },
+}
 ```
