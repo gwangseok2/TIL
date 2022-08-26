@@ -138,3 +138,9 @@ computed:{
   },
 }
 ```
+
+## [store mutation에 바로 접근]
+
+```javascript
+this.$store.commit("fetchPageNumber");
+```
