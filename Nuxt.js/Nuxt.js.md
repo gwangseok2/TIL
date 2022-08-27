@@ -144,3 +144,19 @@ computed:{
 ```javascript
 this.$store.commit("fetchPageNumber");
 ```
+
+---
+
+## [axios params로 쿼리스트링 여러개 보내기.]
+
+```javascript
+return instance.get(`/api/v1/material/news`, {
+  params: {
+    cate: type.category,
+    level: type.level,
+    size: 16,
+    sort: "no,desc",
+    page: type.pageNumber,
+  },
+});
+```
