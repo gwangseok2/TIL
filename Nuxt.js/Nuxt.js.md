@@ -82,6 +82,8 @@ nuxtServerInit 함수는 넉스트의 $store actions에서 사용 가능하며, 
 사용 가능하며, SSR랜더 시점에서 실행되기 때문에 미리 데이터를 다루거나 서버에서만 접근 가능한 데이터를 다룰 때 사용한다.
 
 - 일종의 라이프 사이클 훅
+- 서버사이드에서 호출하고 싶을 때
+- 아니면 미리 데이터를 넣고 싶어서 dispatch만 모아둘 때 여러개의 액션 함수 처리
 
 asyncData보다 이른 시점에 호출.
 
@@ -89,6 +91,8 @@ asyncData보다 이른 시점에 호출.
   actions: {
     nuxtServerInit(storeContext, nuxtContext) {
       storeContext.commit('뮤테이션 함수명');
+      // 이런 식으로 dispatch = action 실행을 nuxtServerInit 부분에서 모아서도 사용 가능.
+      storeContext.dispatch(FETCH_CART_ITEMS)
     }
   }
 ```
