@@ -172,3 +172,21 @@ return instance.get(`/api/v1/material/news`, {
 - 브라우저에서 URL 주소를 변경해서 페이지를 이동할 때. (CSR)
 - 라이프싸이클 훅인 create처럼 패스가 변경되면 호출 된다. -컴포넌트가 mounted 된 후 클라이언트에서 호출
 - fetchOnServer가 false 또는 false를 반환할 경우, fetch는 오직 client-side에서만 실행됨.
+
+---
+
+## [Nuxt 서비스 배포 방법.]
+
+-SSR 모드로 생성된 웹 서비스는 배포하려는 서버에서 Node.js 서버를 사용할 수 있는 상태로 배포를 해야함.
+
+1. Azure
+2. Google App Engine
+3. Heroku
+
+## [Nuxt & vue 환경 :src assets 바인딩]
+
+```javascript
+require("@/assets/img.png");
+```
+
+- require를 사용해 바인딩을 하면 된다.
