@@ -234,3 +234,29 @@ props: {
 ## [Vue.js에서 스크롤 이벤트]
 
 - mounted때 리스너 부착해서 이벤트 바인딩을 해야함.
+
+---
+
+## [route.query]
+
+파라메터가 ? 를 통해서 들어올 경우
+
+https://github.com/gwangseok2?text=hello&size=30
+
+router 설정
+
+  {
+    path: '/search',
+    components: {
+      header: Header,
+      default: SearchBody,
+      footer: Footer
+    }
+  }
+
+파라메터 접근은 $route.query 입니다.
+
+<template> 
+{{ $route.query.text }} <!-- hello --> 
+{{ $route.query.size }} <!-- 20 --> 
+</template>
