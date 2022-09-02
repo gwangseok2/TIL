@@ -385,3 +385,20 @@ methods: {
 });
 ```
 
+@mixin fontSize($type) {
+  font-size: $type + px;
+
+  @include phone {
+    font-size: ($type / 375) * 100 + vw !important;
+  }
+
+  // 764 ~ 1024px 사이
+  @include tabletStart {
+    font-size: (($type * 1.75) / 1280) * 100 + vw !important;
+  }
+
+  // 1024px 이상
+  @include pcStart {
+    font-size: (((($type * 1.75) / 1280) * 100) / 100 * 1024) + px !important;
+  }
+}
