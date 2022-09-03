@@ -183,6 +183,24 @@ return instance.get(`/api/v1/material/news`, {
 2. Google App Engine
 3. Heroku
 
+- . heroku.com 회원 가입
+- . 메일 인증 후 create-App
+- . 앱 이름 설정 github 연동. 래퍼지토리 명 검색 후 연결.
+- setting - config vars key: HOST VALUE : 0.0.0.0
+- 반영 할 브랜치 선택.
+
+error 뜰 시..
+package.json 파일에 엔진 명시.
+
+```javascript
+ "engines": {
+    "node": "14.0.0"
+  }
+```
+
+Please update your lock file with `npm install` before continuing 이 오류 뜰 시 npm install 후
+package-lock.json 최신화.
+
 ## [Nuxt & vue 환경 :src assets 바인딩]
 
 ```javascript
