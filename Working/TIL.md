@@ -283,7 +283,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 - 10개씩 불러오는 페이지네이션 됨 지금 내 실력은 여기까지지만 더 디벨롭 할 수 있을 듯 .
 
-```javascript
+````javascript
 props: {
     value: {
       type: Number,
@@ -383,22 +383,35 @@ methods: {
   },
 }
 });
-```
+```scss
 
 @mixin fontSize($type) {
   font-size: $type + px;
 
   @include phone {
-    font-size: ($type / 375) * 100 + vw !important;
+    // font-size: ($type / 375) * 100 + vw !important;
+    font-size: Min(($type / 375) * 100 + vw, $type + px);
   }
 
   // 764 ~ 1024px 사이
   @include tabletStart {
-    font-size: (($type * 1.75) / 1280) * 100 + vw !important;
+    font-size: Min((($type * 1.35) / 1024) * 100 + vw, ($type * 1.25) + px) !important;
   }
 
   // 1024px 이상
   @include pcStart {
-    font-size: (((($type * 1.75) / 1280) * 100) / 100 * 1024) + px !important;
+    font-size: Min((((($type * 1.65) / 1280) * 100) / 100 * 1024) + vw, ($type * 1.35) + px) !important;
   }
 }
+
+````
+
+## [Scss에서 css min() 함수 사용 방법]
+
+Scss에서 css min() 함수 사용할 때
+아래의 이미지처럼
+
+min함수의 'm'을 대문자 'M'으로 사용하면
+Scss오류에 걸리지 않고 사용 가능합니다!
+
+![scss](/img/ScssMin.png)
