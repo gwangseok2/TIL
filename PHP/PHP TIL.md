@@ -1,4 +1,5 @@
 # [PHP TIL]
+
 ---
 
 ## [시간 가져오는 방법]
@@ -7,28 +8,50 @@
 <?php
     // 날짜 변수 선언 2022 07 28
     $testDate = new DateTime();
-    
+
     // 변수 오늘 날짜의 데이만 출력 28
     $today = $testDate->format('d') +1;
-    
+
     // 날짜 형식을 월 / 일로 변경. 07 28
     $test = $testDate->format("m/d");
-    
-    // 날짜 형식을 요일로 number 받아옴. 월,화,수,목 월요일이 1 [1,2,3,4,5,6,7] 
+
+    // 날짜 형식을 요일로 number 받아옴. 월,화,수,목 월요일이 1 [1,2,3,4,5,6,7]
     $test1 = $testDate->format('N');
 
     // 날짜 배열  php는 인덱스 1이 월요일이라 빈배열 삽입 필요
     $testArr = ['','월','화','수','목','금','토','일'];
 
     // testDate의 시간을 복사하여 실행할 때마다 1Day 씩 더한다. P1M = 1달씩 더함.
-    $testDate->add(new DateInterval("P1D")); 
+    $testDate->add(new DateInterval("P1D"));
 
     // 내일 날짜부터 출력 7일
     for($i = 0; $i < 7; $i++) {
-        $testDate->add(new DateInterval("P1D")); 
+        $testDate->add(new DateInterval("P1D"));
         echo $testDate->format("m/d").$testArr[$testDate->format('N')].'<br>';
     }
 
-?>
+
+
+```
+
+## [Css 버전 관리]
+
+```php
+// css 버전 관리 function
+function auto_version($file) {
+    if (strpos($file, '/') !== 0 || !file_exists($_SERVER['DOCUMENT_ROOT'] . $file)) return $file;
+    $mtime = filemtime($_SERVER['DOCUMENT_ROOT'] . $file);
+    return sprintf("%s?v=%d", $file, $mtime);
+}
+
+function css_version_change($css) {
+    foreach ($css as $i) {
+        echo '<link rel="stylesheet" href="' . auto_version($i) . '" type="text/css">';
+    }
+}
+
+// css version function
+$css = array('/css/style.css');
+css_version_change($css);
 
 ```
