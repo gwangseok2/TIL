@@ -183,6 +183,8 @@ return instance.get(`/api/v1/material/news`, {
 2. Google App Engine
 3. Heroku
 
+### [Heroku]
+
 - . heroku.com 회원 가입
 - . 메일 인증 후 create-App
 - . 앱 이름 설정 github 연동. 래퍼지토리 명 검색 후 연결.
@@ -200,6 +202,18 @@ package.json 파일에 엔진 명시.
 
 Please update your lock file with `npm install` before continuing 이 오류 뜰 시 npm install 후
 package-lock.json 최신화.
+
+- 우측 상단에 More 클릭 후 view Logs로 서버쪽 로그를 확인할 수 있음.
+
+server error 발생시
+Backend API 연결 확인
+새로운 git repo 생성 후
+
+<!-- https://my-json-server.typicode.com/gwangseok2/nuxt-front-api -->
+
+https://my-json-server.typicode.com/username/reponame
+
+---
 
 ## [Nuxt & vue 환경 :src assets 바인딩]
 
