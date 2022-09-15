@@ -415,3 +415,26 @@ min함수의 'm'을 대문자 'M'으로 사용하면
 Scss오류에 걸리지 않고 사용 가능합니다!
 
 ![scss](/img/ScssMin.png)
+
+## [데이터를 2가지 중 하나만 담을 때]
+
+ex)
+
+a vs b
+c vs d
+e vs f
+g vs h
+
+배열에 하나씩 만 담고 싶을 때
+
+<!-- 포문 사용 -->
+
+```javascript
+for (let i = 0; i < 4; i++) {
+  if ($(target).parent().index() === i) {
+    classStyleArr[i] = checkVal;
+  }
+}
+```
+
+<!-- hashmap을 이용해서도 가능할 것 같은데 추후 디밸롭 예정 -->

@@ -209,6 +209,8 @@ server error 발생시
 Backend API 연결 확인
 새로운 git repo 생성 후
 
+json 호스팅 방식
+
 <!-- https://my-json-server.typicode.com/gwangseok2/nuxt-front-api -->
 
 https://my-json-server.typicode.com/username/reponame
