@@ -245,7 +245,7 @@ https://github.com/gwangseok2?text=hello&size=30
 
 router 설정
 
-  {
+{
     path: '/search',
     components: {
       header: Header,
@@ -260,3 +260,7 @@ router 설정
 {{ $route.query.text }} <!-- hello --> 
 {{ $route.query.size }} <!-- 20 --> 
 </template>
+
+---
+
+## [Vue.js 끝장내기 시작 2022 09 19]
