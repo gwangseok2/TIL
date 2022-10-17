@@ -443,3 +443,7 @@ for (let i = 0; i < 4; i++) {
 
 - 이미지의 16:9 비율 계산 후 그 값 만큼 padding-top으로 주고 그 안에 동영상 삽입.
 - 세로 / 가로
+
+## [정규식 인풋 자동으로 하이픈 추가]
+인풋 이벤트에서
+- event.target.value = event.target.value.replace(/[^0-9]/g, '').replace(/^(\d{0,3})(\d{0,4})(\d{0,4})$/g, "$1-$2-$3").replace(/(\-{1,2})$/g, "");
