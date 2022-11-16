@@ -224,3 +224,13 @@ require("@/assets/img.png");
 ```
 
 - require를 사용해 바인딩을 하면 된다.
+
+## [nuxt layouts 변경]
+
+1. layouts 폴더 밑에 파일 생성 .vue
+
+```javascript
+export default {
+  layout: "레이아웃이름",
+};
+```
