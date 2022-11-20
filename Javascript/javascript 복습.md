@@ -345,7 +345,7 @@ IF(word[length-1]) {
 - for문 보다 훨씬 빠르다. 중복 없음
 
 ```javascript
-let test = new Set();
+const test = new Set();
 
 // set에 값 입력.
 test.add();
@@ -354,6 +354,8 @@ test.add();
 test.has();
 
 test.add("팡석");
+
+test.size();
 
 console.log(test.has("팡석"));
 ```
