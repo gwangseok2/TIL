@@ -233,6 +233,36 @@ switch (val) {
 
 ---
 
+## [argument]
+
+- 객체는 함수에 전달된 인수에 해당하는 Array 형태의 객체
+- Array와 비슷하지만, length 빼고는 pop()과 같은 어떤 Array 속성도 없습니다.
+- 각 인수를 설정하거나 재할당할 수도 있습니다.
+- 하지만 array로 변환이 가능하다.
+
+```javascript
+function func1(a, b, c) {
+  console.log(arguments[0], "1출력");
+
+  console.log(arguments[1], "2출력");
+
+  console.log(arguments[2], "3출력");
+
+  console.log(arguments.length, "랭스");
+
+  const args = Array.from(arguments);
+  const argsDot = [...arguments];
+  console.log(args, argsDot, "유사 배열 배열로 반환");
+  return { args, argsDot };
+}
+
+const a = func1(1, 2, 3);
+a.args.push("hi");
+// 이런식으로 배열로 변환 후 배열 매서드 사용가능.
+```
+
+---
+
 ## [**객체 리터럴**]
 
 - 숫자로 시작하거나, 특수 문자 들어갈 땐 문자열 '' 처리를 해줘야 함.
