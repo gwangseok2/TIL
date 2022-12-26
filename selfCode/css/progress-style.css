@@ -1,0 +1,133 @@
+/* progress-bar */
+.progress-container {
+    margin: 30px auto 0;
+    width: 89.33%;
+    min-height: min(129.5px, 34.533333vw);
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    padding: min(29.5px, 7.866666666vw) 4.4776119% min(5.33333vw, 20px);
+    background-color: #fff;
+}
+.progress-container .progress-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+.progress-container .progress-title li {
+    display: flex;
+    align-items: center;
+}
+.progress-title li:first-child span:first-child {
+    position: relative;
+}
+.progress-title li:first-child span:first-child::after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 15px;
+    height: 15px;
+    background-image: url(/img/progress-img/new-icon30.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    right: -6px;
+    top: -8px;
+}
+.progress-title li:first-child span:nth-child(2) {
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+    margin-left: 5px;
+}
+.progress-title li:last-child > span:first-child {
+    margin-right: 5px;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: -0.35px;
+    color: #b4b4b4;
+}
+.progress-container .title-img {
+    width: 25px;
+}
+.progress-container .progress-bar1 {
+    background-color: #eaebef;
+    width: 100%;
+    height: 11px;
+    border-radius: 5.5px;
+    margin-top: 15px;
+    position: relative;
+    overflow: hidden;
+}
+.progress-bar-fill {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 0px;
+    height: 100%;
+    transform: translateY(-50%);
+    transition: all 1.8s;
+    border-radius: 5.5px;
+}
+.progress-tooltip {
+    position: relative;
+    margin-top: 5px;
+    margin-left: 0;
+    transition: all 1.8s;
+}
+.triangle {
+    width: 0;
+    height: 0;
+    border-bottom: 4px solid transparent;
+    border-top: 4px solid transparent;
+    border-left: 5px solid transparent;
+    border-right: 0px solid transparent;
+    transform: rotate(90deg);
+    margin-left: 0;
+    transition: all 1.8s;
+}
+.tooltip-text {
+    font-size: 13px;
+    font-weight: bold;
+    width: 100%;
+    position: relative;
+    color: transparent;
+    transition: all 1.8s;
+    opacity: 0;
+}
+.save-time {
+    font-size: 12px;
+}
+.goal-text.finish {
+    font-size: 14px !important;
+    font-weight: bold !important;
+    color: #333 !important;
+}
+/* progress-bar END */
+
+/* banner */
+.banner {
+    width: 89.33%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+}
+.banner .popup-img {
+    width: 100%;
+    max-width: 335px;
+}
+.banner-btn {
+    width: 60.56603%;
+}
+.banner-btn img {
+    width: 70%;
+    max-width: 205px;
+    display: block;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 40px;
+}
+/* banner END */
