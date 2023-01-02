@@ -33,9 +33,26 @@
 
 ---
 
-## [windows npm 설치]
+## [windows nvm 설치]
 
 1. https://github.com/coreybutler/nvm-windows/releases
 2. \***\*cmd, 파워셀 관리자명령으로 실행\*\*\***
    nvm install 10.16.3
    nvm use 10.16.3
+
+---
+
+## [웹 표준]
+
+### 알고 있었지만 좀 더 정리를 위함
+
+1. 어떠한 웹 브라우저에도 잘 동작할 수 있도록 (기존에 해왔던 것)
+2. 적절한 시맨틱 태그의 사용으로 검색엔진 최적화
+
+---
+
+## [웹 접근성]
+
+1. 장애인 분들도 웹을 잘 접근 할 수 있도록 img에 alt를 명시하거나
+2. 색약자를 위한 확실한 명대비를 표현
+3. 운용성(Operable), 이해성(Understandable), 내구성(Robust)을 생각하면서 코딩
