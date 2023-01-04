@@ -56,3 +56,18 @@
 1. 장애인 분들도 웹을 잘 접근 할 수 있도록 img에 alt를 명시하거나
 2. 색약자를 위한 확실한 명대비를 표현
 3. 운용성(Operable), 이해성(Understandable), 내구성(Robust)을 생각하면서 코딩
+
+## [eslint, prettier error]
+
+1. vscode 컨트롤 + , 클릭 후 format on save 해제
+2. setting.json 아래의 코드 추가
+```json
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "eslint.workingDirectories": [
+    {"mode": "auto"}
+  ],
+}
+```
