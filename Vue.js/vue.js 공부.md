@@ -263,4 +263,10 @@ router 설정
 
 ---
 
-## [Vue.js 끝장내기 시작 2022 09 19]
+## [vue2 router 설치 관련]
+
+22년 2월 7일부터 뷰 라우터를 NPM으로 설치할 때 버전을 꼭 명시해 주셔야 Vue 2 버전과 호환됩니다.
+
+```javascript
+npm i vue-router@3.5.3
+```
