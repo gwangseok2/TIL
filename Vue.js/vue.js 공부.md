@@ -270,3 +270,10 @@ router 설정
 ```javascript
 npm i vue-router@3.5.3
 ```
+
+---
+
+## [vue router 코드 스플리팅]
+
+app.js에 모든 페이지의 정보를 들고 옴 
+위의 경우 속도가 느려지기 때문에 코드 스플리팅 처리가 필요한 이유임
