@@ -277,3 +277,10 @@ npm i vue-router@3.5.3
 
 app.js에 모든 페이지의 정보를 들고 옴 
 위의 경우 속도가 느려지기 때문에 코드 스플리팅 처리가 필요한 이유임
+
+---
+
+## [history mode]
+
+vue 프로젝트 배포시 서버에서 history mode 관련되어 처리를 해줘야함.
+https://router.vuejs.org/guide/essentials/history-mode.html
