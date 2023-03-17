@@ -276,7 +276,11 @@ npm i vue-router@3.5.3
 ## [vue router 코드 스플리팅]
 
 app.js에 모든 페이지의 정보를 들고 옴 
-위의 경우 속도가 느려지기 때문에 코드 스플리팅 처리가 필요한 이유임
+위의 경우 속도가 느려지기 때문에 아래의 방식처럼 코드 스플리팅 처리가 필요한 이유임
+
+```javascript
+component: () => import('@/views/LoginPage.vue'),
+```
 
 ---
 
@@ -284,3 +288,19 @@ app.js에 모든 페이지의 정보를 들고 옴
 
 vue 프로젝트 배포시 서버에서 history mode 관련되어 처리를 해줘야함.
 https://router.vuejs.org/guide/essentials/history-mode.html
+
+---
+
+## [input password 에러]
+
+Input elements should have autocomplete attributes (suggested: "current-password") 에러 발생 시 
+
+- autoComplete="on" 추가
+
+---
+
+## [vue2 vuex version issue]
+
+vue2는 vuex3버전 사용
+vue3는 vuex4버전 사용
+https://velog.io/@reum107/Vuex-%EC%84%A4%EC%B9%98-%EC%97%90%EB%9F%AC
