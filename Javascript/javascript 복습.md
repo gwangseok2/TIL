@@ -397,6 +397,8 @@ test.size();
 console.log(test.has("팡석"));
 ```
 
+---
+
 ## [map]
 
 ```javascript
@@ -407,4 +409,12 @@ cartList = cartList.map((item) => ({
   //item 객체에 imageUrl변경 리턴
   imageUrl: `${item.imageUrl}?random=${Math.random()}`,
 }));
+```
+
+---
+
+## [a tag 기본 동작 막기]
+
+``` html
+<a href="javascript:;>
 ```
