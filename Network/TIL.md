@@ -38,3 +38,35 @@
 - 아래의 이미지처럼 proxy에 선언된 값으로 BE와 통신을 할 수 있도록 한다.
 
   ![proxy](../img/proxy정리.png)
+
+---
+
+### [axios interceptors]
+
+- 서버로 요청을 보내거나 받기 전에 가로채서 로직을 추가할 수 있음.
+
+```javascript
+// instance 생성 해서 사용 시 instance.interceptors로 변경 필요
+
+
+// Add a request interceptor
+axios.interceptors.request.use(function (config) {
+    // Do something before request is sent
+    return config;
+  }, function (error) {
+    // Do something with request error
+    return Promise.reject(error);
+  });
+
+// Add a response interceptor
+axios.interceptors.response.use(function (response) {
+    // Any status code that lie within the range of 2xx cause this function to trigger
+    // Do something with response data
+    return response;
+  }, function (error) {
+    // Any status codes that falls outside the range of 2xx cause this function to trigger
+    // Do something with response error
+    return Promise.reject(error);
+  });
+```
+https://github.com/axios/axios#interceptors
