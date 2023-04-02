@@ -304,3 +304,11 @@ Input elements should have autocomplete attributes (suggested: "current-password
 vue2는 vuex3버전 사용
 vue3는 vuex4버전 사용
 https://velog.io/@reum107/Vuex-%EC%84%A4%EC%B9%98-%EC%97%90%EB%9F%AC
+
+---
+
+## [전역 필터 사용]
+
+main.js에 filters.js 임포트 후
+Vue.fillter('사용 할 이름','함수명');
+하면 전역 필터 등록 가능하다.
