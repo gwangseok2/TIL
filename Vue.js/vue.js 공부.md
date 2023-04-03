@@ -312,3 +312,17 @@ https://velog.io/@reum107/Vuex-%EC%84%A4%EC%B9%98-%EC%97%90%EB%9F%AC
 main.js에 filters.js 임포트 후
 Vue.fillter('사용 할 이름','함수명');
 하면 전역 필터 등록 가능하다.
+
+---
+
+## [라우터 네비게이션 가드]
+
+const router 변수를 만들어 기존에 있는 라우터를 변수에 담고
+
+router.beforeEach를 사용하면 된다
+beforeEach의 콜백은 to, from, next가 있다.
+
+to = 이동하려는 페이지
+from = 어디서 왔는지 (현재 페이지)
+next = 다음페이지로 넘어갈 수 있도록 호출할 수 있는 API
+
