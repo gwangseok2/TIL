@@ -418,3 +418,9 @@ cartList = cartList.map((item) => ({
 ``` html
 <a href="javascript:;>
 ```
+
+
+## [Javascript 프로퍼티 삭제 시 Delete보다 null or undefined로 만드는 것이 낫다]
+
+1. delete로 객체의 속성 값을 지워도 메모리에 남아있다.
+2. 삭제 하고 싶을 때 delete 연산자를 사용하기보다 값을 null 이나 undefined 로 설정하는것을 추천한다.
