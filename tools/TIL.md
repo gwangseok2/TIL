@@ -17,3 +17,6 @@
 
 1. open API를 테스트 해볼 수 있는 사이트. mock api 페이크 서버.
 2. git주소 https://github.com/typicode/json-server
+
+## [웹에서 간단한 코드 테스트]
+1. https://codesandbox.io/
