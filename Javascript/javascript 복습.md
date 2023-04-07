@@ -424,3 +424,9 @@ cartList = cartList.map((item) => ({
 
 1. delete로 객체의 속성 값을 지워도 메모리에 남아있다.
 2. 삭제 하고 싶을 때 delete 연산자를 사용하기보다 값을 null 이나 undefined 로 설정하는것을 추천한다.
+
+---
+
+## [2차원 배열 쪼갤 때 flat을 사용해도 되지만 또 다른 방법]
+
+- [].concat.apply([],'배열명')
