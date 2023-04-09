@@ -430,3 +430,30 @@ cartList = cartList.map((item) => ({
 ## [2차원 배열 쪼갤 때 flat을 사용해도 되지만 또 다른 방법]
 
 - [].concat.apply([],'배열명')
+
+## [arr.sort()]
+
+- 사전 기준으로 정렬하기 때문에 숫자를 정렬하고 싶을 때는 따로 함수를 제작해서 넘겨줘야 함
+
+```javascript
+const arr = [1,20,30,2,3,10];
+
+// [1, 10, 2, 20, 3, 30]
+console.log(arr.sort());
+
+const compare = (a,b) => {
+  console.log(a,b);
+  if(a < b) {
+    // 뒤로 보낸다
+    return 1;
+  }
+
+  if(a > b) {
+    // 앞으로 보낸다
+    return -1;
+  }
+  // 자리를 안바꾼다
+  return 0;
+}
+
+```
