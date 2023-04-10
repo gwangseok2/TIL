@@ -71,3 +71,10 @@
   ],
 }
 ```
+
+## [role]
+
+- 웹접근성을 위해 HTML5에 생긴 속성
+
+// 내 벨로그로 이동
+https://velog.io/@gwangseok2
