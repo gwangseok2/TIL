@@ -443,17 +443,18 @@ console.log(arr.sort());
 
 const compare = (a,b) => {
   console.log(a,b);
-  if(a < b) {
+  if(a > b) {
     // 뒤로 보낸다
     return 1;
   }
 
-  if(a > b) {
+  if(a < b) {
     // 앞으로 보낸다
     return -1;
   }
   // 자리를 안바꾼다
   return 0;
 }
+console.log(arr.sort(compare));
 
 ```
