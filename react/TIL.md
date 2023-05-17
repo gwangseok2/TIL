@@ -100,7 +100,13 @@ useEffect(()=> {
   return () => {
     console.log("Unmount");
   }
-}.[])
+},[])
 ```
 
-3. useRef
+https://velog.io/@gwangseok2 밸로그에 정리
+
+---
+
+## [React.memo]
+
+- HOC 고차 컴포넌트 이며 특정한 조건을 걸어 쓸대없는 랜더링을 막고 성능향상을 위해 사용함
